@@ -1,6 +1,8 @@
 package com.chucknorris.jokes.model.dto;
 
-public class JokeResponseDto {
+import java.io.Serializable;
+
+public class JokeResponseDto implements Serializable{
     private String id;
     private String text;
 

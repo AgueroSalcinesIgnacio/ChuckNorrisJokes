@@ -1,5 +1,7 @@
 package com.chucknorris.jokes.model.dto;
 
-public class JokeRequestDto {
+import java.io.Serializable;
+
+public class JokeRequestDto implements Serializable{
     
 }

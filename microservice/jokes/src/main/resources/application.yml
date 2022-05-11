@@ -15,3 +15,5 @@ eureka:
 api:
     chucknorris: 
       path: https://api.chucknorris.io/jokes/random
+      test:
+        path: http://localhost:8083/v1/joke-request
