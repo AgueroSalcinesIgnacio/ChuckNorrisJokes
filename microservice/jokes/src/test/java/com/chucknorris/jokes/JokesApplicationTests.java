@@ -3,13 +3,15 @@ package com.chucknorris.jokes;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 
+import com.chucknorris.jokes.controller.JokeController;
 import com.chucknorris.jokes.model.dto.JokeDto;
 import com.chucknorris.jokes.model.dto.JokeRequestDto;
 import com.chucknorris.jokes.model.dto.JokeResponseDto;
 import com.chucknorris.jokes.service.JokeService;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mockito;
@@ -39,14 +41,20 @@ class JokesApplicationTests {
 	@MockBean
 	private RestTemplate restTemplateMock;
 
-	@Value("${api.chucknorris.path}")
-	private String url;
-
 	@Value("${api.chucknorris.test.path}")
 	private String resourceUrl;
 
+	@Value("${api.chucknorris.path}")
+	private String url;
+
 	@Autowired
 	private JokeService jokeService;
+
+	@BeforeEach
+	public void reset() {
+		log.info("Reset mock");
+		Mockito.reset(restTemplateMock);
+	}
 
 	@BeforeTestClass
 	public void setup() {
@@ -61,9 +69,7 @@ class JokesApplicationTests {
 	@Test
 	void getJokeUnitTest() {
 
-		JokeDto dtoMock = new JokeDto();
-		dtoMock.setId(MOCK_ID);
-		dtoMock.setValue(MOCK_VALUE);
+		JokeDto dtoMock = new JokeDto(MOCK_ID, MOCK_VALUE);
 
 		Mockito.when(restTemplateMock.getForObject(url, JokeDto.class)).thenReturn(dtoMock);
 

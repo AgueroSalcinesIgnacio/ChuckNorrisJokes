@@ -4,6 +4,14 @@ public class JokeDto {
     private String id;
     private String value;
 
+    public JokeDto() {
+    }
+
+    public JokeDto(String id, String value) {
+        this.id = id;
+        this.value = value;
+    }
+
     @Override
     public String toString() {
         return "JokeDto [id=" + id + ", value=" + value + "]";
