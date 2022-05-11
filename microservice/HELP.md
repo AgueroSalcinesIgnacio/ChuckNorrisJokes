@@ -1,17 +1,13 @@
-# Getting Started
+# Ayuda para arrancar el proyecto
+## Microservicio que consulta un API REST
 
-### Reference Documentation
-For further reference, please consider the following sections:
+El proyecto consta de dos subproyectos caracterizados por estar implementados en Java 11 utilizando el framework de SpringBoot. 
+Por un lado tenemos el subproyecto discoveryserver que contiene toda la configuración necesaria para levantar el entorno de eureka y permitir así la gestión de los microservicios. 
+Por último tenemos el proyecto jokes que contiene el microservicio objetivo, el cual realizará consultas a una API rest en la nube.
+## Procedimiento para levantar los entornos
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.7/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.7/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.6.7/reference/htmlsingle/#boot-features-developing-web-applications)
+- Primero debemos levantar el entorno de eureka. 
+- Después debemos levantar el proyecto jokes que contiene el microservicio que vamos a consumir
+- Por último necesitaremos un entorno desde el cual poder realizar consultas, yo recomiento utilizar postman o una herramienta similar.
 
-### Guides
-The following guides illustrate how to use some features concretely:
-
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-
+Una vez tengamos todos estos requisitos, una prueba fiable de funcionamiento es real realizar una llamada post a la siguiente url *localhost:8083/v1/joke-request* con un cuerpo o body vacío para obtener la respuesta del microservicio (Siempre y cuando se hayan respetado los entornos y los puertos de despliegue).
