@@ -2,12 +2,12 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-JokesApplication<jokes>",
+            "name": "Spring Boot-JokesApplication<microservice>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "mainClass": "com.chucknorris.jokes.JokesApplication",
-            "projectName": "jokes",
+            "projectName": "microservice",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

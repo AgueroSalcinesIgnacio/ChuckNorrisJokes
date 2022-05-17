@@ -20,6 +20,7 @@ public class JokeService {
     @Autowired
     private RestTemplate restTemplate;
 
+  
     public JokeDto getJoke(JokeRequestDto joke) {
         log.info("calling chuck norris jokes API");
         return restTemplate

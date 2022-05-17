@@ -1,0 +1,10 @@
+
+spring:
+  application:
+    name: chucknorris-service
+server:
+  port: 8083
+api:
+  chucknorris: 
+    path: https://api.chucknorris.io/jokes/random
+      
