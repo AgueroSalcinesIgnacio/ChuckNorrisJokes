@@ -18,7 +18,7 @@ public class JokeServiceIT {
     @Test
     void test() {
 
-        JokeDto response = service.getJoke(null);
+        JokeDto response = service.getJoke();
 
         assertNotNull(response);
         assertTrue(!response.getId().isBlank());

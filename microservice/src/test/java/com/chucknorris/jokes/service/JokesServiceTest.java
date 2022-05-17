@@ -6,7 +6,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 
 import com.chucknorris.jokes.model.dto.JokeDto;
-import com.chucknorris.jokes.model.dto.JokeRequestDto;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -40,7 +39,7 @@ class JokesServiceTest {
 
 		Mockito.when(restTemplateMock.getForObject(anyString(), any())).thenReturn(dtoMock);
 
-		JokeDto response = jokeService.getJoke(new JokeRequestDto());
+		JokeDto response = jokeService.getJoke();
 
 		assertNotNull(response);
 		assertEquals(dtoMock.getId(), response.getId());

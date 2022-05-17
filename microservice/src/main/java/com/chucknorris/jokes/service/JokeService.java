@@ -1,7 +1,6 @@
 package com.chucknorris.jokes.service;
 
 import com.chucknorris.jokes.model.dto.JokeDto;
-import com.chucknorris.jokes.model.dto.JokeRequestDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class JokeService {
     private RestTemplate restTemplate;
 
   
-    public JokeDto getJoke(JokeRequestDto joke) {
+    public JokeDto getJoke() {
         log.info("calling chuck norris jokes API");
         return restTemplate
                 .getForObject(url, JokeDto.class);

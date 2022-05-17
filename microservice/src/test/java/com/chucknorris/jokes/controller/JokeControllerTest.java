@@ -33,9 +33,9 @@ public class JokeControllerTest {
         dtoMock.setId(MOCK_ID);
         dtoMock.setValue(MOCK_VALUE);
 
-        Mockito.when(service.getJoke(null)).thenReturn(dtoMock);
+        Mockito.when(service.getJoke()).thenReturn(dtoMock);
 
-        mvc.perform(MockMvcRequestBuilders.post("/v1/joke-request"))
+        mvc.perform(MockMvcRequestBuilders.get("/v1/joke-request"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNotEmpty());
     }
 }

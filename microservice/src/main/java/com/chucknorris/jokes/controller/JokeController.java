@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.chucknorris.jokes.model.dto.JokeRequestDto;
 import com.chucknorris.jokes.model.dto.JokeResponseDto;
 import com.chucknorris.jokes.service.JokeService;
 
@@ -19,9 +18,9 @@ public class JokeController {
     @Autowired
     private JokeService jokeService;
 
-    @PostMapping("/joke-request")
-    public ResponseEntity<JokeResponseDto> getJoke(@RequestBody(required = false) JokeRequestDto joke) {
+    @GetMapping("/joke-request")
+    public ResponseEntity<JokeResponseDto> getJoke() {
         log.info("called getJoke of JokeController");
-        return new ResponseEntity<>(new JokeResponseDto(jokeService.getJoke(joke)),HttpStatus.OK);
+        return new ResponseEntity<>(new JokeResponseDto(jokeService.getJoke()),HttpStatus.OK);
     }
 }
