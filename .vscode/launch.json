@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch JokesApplication",
+            "request": "launch",
+            "mainClass": "com.chucknorris.jokes.JokesApplication"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-JokesApplication<microservice>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
