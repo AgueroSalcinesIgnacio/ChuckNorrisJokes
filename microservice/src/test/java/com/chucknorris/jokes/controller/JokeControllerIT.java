@@ -19,13 +19,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class JokeControllerTest {
+public class JokeControllerIT {
 
     @Autowired
     private MockMvc mvc;
-
-    @MockBean
-    private JokeService service;
 
     @MockBean
     private ModelMapper modelMapper;
@@ -36,10 +33,10 @@ public class JokeControllerTest {
 
     @Test
     void test() throws Exception {
+
         JokeDto dtoMock = new JokeDto();
         dtoMock.setId(MOCK_ID);
         dtoMock.setValue(MOCK_VALUE);
-        Mockito.when(service.getJoke()).thenReturn(dtoMock);
 
         JokeResponseDto resMock = new JokeResponseDto();
         resMock.setId(MOCK_ID);
@@ -48,5 +45,6 @@ public class JokeControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.get("/v1/joke-request"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNotEmpty());
+
     }
 }
