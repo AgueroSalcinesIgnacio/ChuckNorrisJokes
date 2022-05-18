@@ -1,5 +1,6 @@
 package com.chucknorris.jokes.controller;
 
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,12 @@ public class JokeController {
     @Autowired
     private JokeService jokeService;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     @GetMapping("/joke-request")
     public ResponseEntity<JokeResponseDto> getJoke() {
         log.info("called getJoke of JokeController");
-        return new ResponseEntity<>(new JokeResponseDto(jokeService.getJoke()),HttpStatus.OK);
+        return new ResponseEntity<>(modelMapper.map(jokeService.getJoke(), JokeResponseDto.class), HttpStatus.OK);
     }
 }

@@ -15,6 +15,7 @@
 	<description>Microservices parent project for Chuck Norris Jokes</description>
 	<properties>
 		<java.version>11</java.version>
+		<model.mapper>3.0.0</model.mapper>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -27,6 +28,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${model.mapper}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
